@@ -1,0 +1,20 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Podziękowanie</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Dziękujemy za zamówienie odpustu!</h1>
+        <p>Całkowity koszt: <strong>{{ cena }} zł</strong></p>
+        <a href="/" class="return-button">Powrót do strony głównej</a>
+    </div>
+</body>
+
+</html>

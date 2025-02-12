@@ -1,0 +1,65 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zamów Odpust</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Zamów Odpust</h1>
+        <form method="post">
+            {% csrf_token %}
+
+            <div class="form-group">
+                <label for="{{ form.klient_imie.id_for_label }}">{{ form.klient_imie.label }}</label>
+                {{ form.klient_imie }}
+            </div>
+
+            <div class="form-group">
+                <label for="{{ form.grzesznik_imie.id_for_label }}">{{ form.grzesznik_imie.label }}</label>
+                {{ form.grzesznik_imie }}
+            </div>
+
+            <div class="form-group">
+                <label for="{{ form.grzesznik_nazwisko.id_for_label }}">{{ form.grzesznik_nazwisko.label }}</label>
+                {{ form.grzesznik_nazwisko }}
+            </div>
+
+            <div class="form-group">
+                <label for="{{ form.typ_odpustu.id_for_label }}">{{ form.typ_odpustu.label }}</label>
+                {{ form.typ_odpustu }}
+            </div>
+
+            <div class="form-group">
+                <label for="{{ form.ksiadz.id_for_label }}">{{ form.ksiadz.label }}</label>
+                {{ form.ksiadz }}
+            </div>
+
+            <div class="form-group">
+                <label>{{ form.uslugi_dodatkowe.label }}:</label>
+                <div class="form-group-checkbox">
+                    {% for usluga in form.uslugi_dodatkowe %}
+                    <label>
+                        {{ usluga.tag }} {{ usluga.choice_label }}
+                    </label>
+                    {% endfor %}
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label for="{{ form.metoda_platnosci.id_for_label }}">{{ form.metoda_platnosci.label }}</label>
+                {{ form.metoda_platnosci }}
+            </div>
+
+            <button type="submit" class="submit-button">Zamów odpust</button>
+        </form>
+    </div>
+</body>
+
+</html>
